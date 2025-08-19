@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Radhe ❤️ </title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Sacramento&family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styling */
+        body {
+            margin: 0;
+            font-family: 'Sacramento', cursive;
+            background: radial-gradient(circle, #ff99cc, #800080);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Love Progress Bar */
+        #loveProgress {
+            width: 0%;
+            height: 5px;
+            background: linear-gradient(45deg, #ff99cc, #800080);
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        /* First Page */
+        #startPage {
+            background-color: black;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .start-btn {
+            font-size: 2em;
+            padding: 20px 40px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #ff99cc, #800080);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .start-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.7);
+        }
+
+        /* Full-Screen Overlay Navbar */
+        .overlay {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 100;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            overflow-x: hidden;
+            transition: 0.5s;
+        }
+
+        .overlay-content {
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            text-align: center;
+            color: white;
+        }
+
+        .overlay-content a {
+            padding: 10px;
+            display: block;
+            text-decoration: none;
+            font-size: 2em;
+            margin: 20px 0;
+            color: #ff99cc;
+            transition: 0.3s;
+        }
+
+        .overlay-content a:hover {
+            transform: scale(1.2);
+            color: #ffffff;
+        }
+
+        .overlay .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 3em;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .overlay .close-btn:hover {
+            color: #ff99cc;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 80px 20px;
+            text-align: center;
+            min-height: 100vh;
+            background: radial-gradient(circle, #ff99cc, #800080);
+            color: white;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .content.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Section Content Styling */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #800080;
+            color: white;
+        }
+
+        /* Animations for Images */
+        .image-container {
+            max-width: 600px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Interactive Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Timeline for Past */
+        .timeline {
+            list-style: none;
+            margin: 20px 0;
+            padding: 0;
+        }
+
+        .timeline li {
+            margin: 20px 0;
+            position: relative;
+            text-align: left;
+        }
+
+        .timeline li::before {
+            content: '•';
+            font-size: 2em;
+            color: #ff99cc;
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform: translate(-50%, 0);
+        }
+
+        .timeline li span {
+            display: block;
+            margin-left: 20px;
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Promise List */
+        .promise-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 500px;
+        }
+
+        .promise-list li {
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #ff99cc;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            display: none;
+        }
+
+        .back-to-top i {
+            font-size: 1.5em;
+        }
+
+        
+        .radhakrishna-section {
+        text-align: center;
+        padding: 50px 20px;
+        background: linear-gradient(135deg, #f0f8ff, #fff5e6);
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+        font-family: 'Sacramento', cursive;
+        font-size: 2.5rem;
+        color: #6a1b9a;
+        margin-bottom: 20px;
+    }
+
+    .quote {
+        font-size: 1.5em;
+        font-family: 'Merienda', cursive;
+        color: #4a148c;
+        margin: 20px 0;
+        line-height: 1.6;
+        font-style: italic;
+    }
+
+    .carousel-container {
+        position: relative;
+        width: 80%;
+        max-width: 800px;
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-slide {
+        min-width: 100%;
+    }
+
+    .carousel-slide img {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    .prev-btn, .next-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: background 0.3s ease;
+    }
+
+    .prev-btn {
+        left: 10px;
+    }
+
+    .next-btn {
+        right: 10px;
+    }
+
+    .prev-btn:hover, .next-btn:hover {
+        background: #ffcccb;
+    }
+
+    .message-container {
+        font-family: 'Quicksand', sans-serif;
+        color: #4a148c;
+        font-size: 1.2em;
+        margin-top: 30px;
+        line-height: 1.8;
+    }
+
+    #floatingIcons {
+        position: relative;
+        margin-top: 40px;
+    }
+
+    .symbol {
+        width: 30px;
+        height: 30px;
+        background: url('https://via.placeholder.com/30x30?text=%E2%99%A5') no-repeat center;
+        background-size: contain;
+        position: absolute;
+        animation: float 4s infinite ease-in-out;
+    }
+
+    .symbol:nth-child(1) {
+        left: 20px;
+        animation-delay: 0s;
+    }
+
+    .symbol:nth-child(2) {
+        left: 70px;
+        animation-delay: 1.5s;
+    }
+
+    .symbol:nth-child(3) {
+        left: 120px;
+        animation-delay: 3s;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0) scale(1);
+            opacity: 0.8;
+        }
+        50% {
+            transform: translateY(-30px) scale(1.3);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(0) scale(1);
+            opacity: 0.8;
+        }
+    }
+
+
+@media screen and (max-width: 768px) {
+    .start-btn {
+        font-size: 1.5em;
+        padding: 15px 30px;
+    }
+
+    .overlay-content a {
+        font-size: 1.5em;
+    }
+
+    .carousel-container {
+        width: 100%;
+        margin: 10px auto;
+    }
+}
+
+/* Home section */
+.welcome-message {
+    font-size: 2em;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    margin: 20px 0;
+    color: #ff99cc;
+}
+
+/* Heartbeat Animation */
+.heartbeat-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heartbeat {
+    width: 100px;
+    height: 100px;
+    background-color: #ff99cc;
+    border-radius: 50%;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Love Quotes */
+.love-quotes {
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Great Vibes', cursive;
+    color: #fff;
+}
+
+.love-quotes p {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+/* Button */
+button {
+    padding: 10px 20px;
+    background-color: #ff99cc;
+    color: white;
+    border: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #800080;
+}
+
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fff;
+    color: #800080;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+}
+
+.close-btn {
+    color: #800080;
+    font-size: 2em;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-btn:hover {
+    color: #ff99cc;
+}
+
+.modal h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.modal p {
+    font-size: 1.2em;
+}
+
+/* Heart Animation */
+.heart {
+    font-size: 3em;
+    cursor: pointer;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.heart-animated {
+    transform: scale(1.5); /* Make heart grow */
+    color: #ff99cc;
+}
+
+/* Button Styling */
+.show-story-btn {
+    background: #800080;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.show-story-btn:hover {
+    background: #ff99cc;
+}
+
+/* Hidden Proposal Story */
+#proposalStory {
+    margin-top: 20px;
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* Future Goals Section */
+.future-goals {
+    text-align: center;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.future-goals h3 {
+    font-size: 2.5em;
+    color: #ff99cc;
+    margin-bottom: 20px;
+}
+
+.future-goals ul {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.future-goals li {
+    margin: 25px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.future-goals img {
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.future-goals img:hover {
+    transform: scale(1.1);
+}
+
+/* Button Styling */
+.future-btn {
+    background: #800080;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.future-btn:hover {
+    background: #ff99cc;
+    transform: scale(1.1);
+}
+
+/* Hidden Future Plans */
+#futurePlans {
+    margin-top: 20px;
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+
+/* Promise Cards Layout */
+.promise-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Styling for each promise card */
+.promise-card {
+    width: 250px;
+    height: 350px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.promise-card-inner {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.promise-card:hover .promise-card-inner {
+    transform: rotateY(180deg);
+}
+
+.promise-card-front, .promise-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.promise-card-front {
+    background: linear-gradient(45deg, #ff99cc, #800080);
+}
+
+.promise-card-back {
+    background: linear-gradient(45deg, #800080, #ff99cc);
+    transform: rotateY(180deg);
+}
+
+.promise-card h3 {
+    font-size: 1.5em;
+}
+
+.promise-card p {
+    font-size: 1.2em;
+}
+
+/* Grid for promise cards */
+.promise-gallery .promise-card:nth-child(-n+3) {
+    flex: 1 1 250px; /* For the first 3 cards in the first row */
+}
+
+.promise-gallery .promise-card:nth-child(n+4):nth-child(-n+6) {
+    flex: 1 1 250px; /* For the second row (cards 4, 5, 6) */
+}
+
+.promise-gallery .promise-card:nth-child(n+7) {
+    flex: 1 1 250px; /* For the remaining cards (7th and 8th cards) */
+}
+
+/* Button Styling */
+.promise-btn {
+    background: #800080;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.promise-btn:hover {
+    background: #ff99cc;
+    transform: scale(1.1);
+}
+
+/* Countdown Timer */
+#countdown-timer {
+    font-size: 3em;
+    color: #ff99cc;
+}
+
+
+/* Countdown Timer */
+#countdown-timer {
+    font-size: 3em;
+    color: #ff99cc;
+}
+
+
+</style>
+</head>
+<body>
+
+<!-- Love Progress Bar -->
+<div id="loveProgress"></div>
+
+<!-- First Page -->
+<div id="startPage">
+    <button class="start-btn" onclick="startJourney()">Immerse yourself to the Ocean of My Heart ❤️</button>
+</div>  
+
+<!-- Full-Screen Overlay Navbar -->
+<div id="overlayNav" class="overlay">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+        <a href="javascript:void(0)" onclick="showSection('home')"><i class="fas fa-home"></i> Home</a>
+        <a href="javascript:void(0)" onclick="showSection('past')"><i class="fas fa-history"></i> Past</a>
+        <a href="javascript:void(0)" onclick="showSection('present')"><i class="fas fa-gift"></i> Present</a>
+        <a href="javascript:void(0)" onclick="showSection('future')"><i class="fas fa-star"></i> Future</a>
+        <a href="javascript:void(0)" onclick="showSection('promises')"><i class="fas fa-handshake"></i> Promises</a>
+        <a href="javascript:void(0)" onclick="showSection('radhakrishna')"><i class="fas fa-heart"></i> RadheKrishna</a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div id="mainPage" style="display: none;">
+    <div id="content" class="content"></div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 - Made for Sweety ❤️</p>
+</footer>
+
+<script>
+    function startJourney() {
+        alert("My heart is waiting for u Radhe.");
+        document.getElementById("startPage").style.display = "none";
+        document.getElementById("mainPage").style.display = "block";
+        openNav();
+    }
+
+    function openNav() {
+        document.getElementById("overlayNav").style.width = "100%";
+    }
+
+    function closeNav() {
+        document.getElementById("overlayNav").style.width = "0";
+    }
+
+    function showSection(section) {
+    closeNav();
+    const content = document.getElementById("content");
+
+    const sections = {
+        home: `
+    <h2>Welcome to my Heart</h2>
+    <p class="welcome-message">Hi, للغناء and سويتي This is our Memory Which filled My  Heart with love.</p>
+    <div class="image-container">
+        <img src="https://i.pinimg.com/736x/91/3c/71/913c71b1dfa2f001e1a231d57bf65843.jpg" alt="Our Special Moment" height="10">
+    </div>
+    
+    <!-- Heartbeat Animation -->
+    <div class="heartbeat-container">
+        <div class="heartbeat"> I LOVE YOU ❤️ </div>
+    </div>
+    
+    <!-- Love Quotes -->
+    <div class="love-quotes">
+        <p>"In you, I've found the love of my life and my closest, truest friend."</p>
+        <p>"You are my today and all of my tomorrows." [From your Gana] </p>
+    </div>
+    
+    <!-- Button to Open Modal -->
+    <button onclick="openModal()">Our Story</button>
+    
+    <!-- Modal for Story -->
+    <div id="storyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>Our Beautiful Story</h3>
+            <p>my first sight on u 14/12/2019 and our journey began with a love ... my paitence that led us here, together.</p>
+        </div>
+    </div>
+
+    <!-- Background Music -->
+    <audio id="home-audio" loop>
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+`,
+        past: `
+    <h2>Our Beautiful Past</h2>
+    <p class="past-message">Every moment i rembered - It has been a blessing, and Our journey in school was unforgettable and sweet memories.</p>
+    <div class="image-container">
+        <img src="https://i.pinimg.com/736x/8b/6b/0c/8b6b0ce7b726a491cb08525703538842.jpg" alt="Our Past Memories">
+    </div>
+    
+    <!-- Timeline of Memories -->
+    <ul class="timeline">
+        <li><span>Our First Meeting: The moment we locked eyes and it all began.</span></li>
+        <li><span>Our First Date: commingsoon</span></li>
+        <li><span>First Trip Together: comming soon</span></li>
+    </ul>
+
+    <button class="relive-btn" onclick="openPastModal()">Relive Our Past</button>
+    
+    <!-- Modal for Story -->
+    <div id="pastModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>Past: MY Journey Begins</h3>
+            <p>From the first moment I met, I knew my life was going to change forever. I laughed, I loved, like an  mentaly disbled. Every single memory you shared is a treasure I hold close to my heart.</p>
+        </div>
+    </div>
+`,
+
+present: `
+    <h2>Our Present</h2>
+    <p>On January 1, 2025, at 12:00 AM, something beautiful happened. It was the best moment in my life , and my world became even more perfect.</p>
+    <div class="image-container">
+        <img src="https://i.pinimg.com/736x/32/c4/d2/32c4d23e5695af10e0601290d4f14411.jpg" alt="Proposal Moment">
+    </div>
+    <p>In that moment, we knew our love would only grow stronger. We cherish every second we share, and I can't wait to build a future together with you.</p>
+
+    <!-- Heart Animation -->
+    <div class="heart" onclick="animateHeart()">❤️</div>
+
+    <!-- Show Proposal Story Button -->
+    <button class="show-story-btn" onclick="showProposalStory()">Show Proposal Story</button>
+
+    <!-- Hidden Proposal Story -->
+    <div id="proposalStory" style="display: none;">
+        <p>It was a cold night, and the world seemed to stand still. At the stroke of midnight, under the stars, rest of my life with  you . My heart swelled with joy, and I knew right then that we were destined to be together forever.</p>
+    </div>
+`,
+
+future: `
+    <h2>Our Future</h2>
+    <p>Together, we'll create the most beautiful story ever written.</p>
+    <p>Every moment spent with you is a glimpse into the life we will build together. Hand in hand, we'll face everything the future holds, making it ours, every step of the way.</p>
+
+    <div class="future-goals">
+        <h3 style="color:rgba(220,30,100,1);">Our Beautiful Future Awaits</h3>
+        <ul>
+            <li>
+                <img src="https://i.pinimg.com/736x/00/29/ad/0029ad1010105b09c7b7e020614bb581.jpg" alt="Our First Home">
+                Building our first home, where love will fill every room.
+            </li>
+            <li>
+                <img src="https://i.pinimg.com/736x/43/61/88/436188cab537595143c08880335d65c7.jpg" alt="Travelling Together">
+                Exploring the world side by side, collecting memories in every city we visit.
+            </li>
+            <li>
+                <img src="https://i.pinimg.com/736x/f7/0c/ff/f70cfffdd76563c236936da8db892ef4.jpg" alt="Growing Together">
+                Growing together in love, supporting each other through everything life brings.
+            </li>
+        </ul>
+    </div>
+
+    <button class="future-btn" onclick="showFuturePlans()">Let’s Dream Big</button>
+
+    <div id="futurePlans" style="display: none;">
+        <p>Our dreams will become reality. Whether it’s a spontaneous adventure or a quiet evening together, every moment will be cherished because we’re creating our story, our future.</p>
+    </div>
+`,
+
+promises: `
+   <div class="promise-gallery">
+    <!-- Promise ∞ -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise ∞</h3>
+                <p>To always be there for you, no matter what.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>To my hardworking girl: <br> <br> Focus on your goals my girl your man isn't going anywhere, I'll always be with you and supports you everytime, will never leave you at any situation of My life</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #1 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #1</h3>
+                <p>Click on it</p>
+            </div>
+            <div class="promise-card-back">
+                <p> I promise to always be there for you just like you have always been there for me and I promise to stand guard and save your dignity as mine..</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #2 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #2</h3>
+                <p>Click on it</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I will always be honest and loyal to you. Remember important days which include anniversary, birthdays, propose day and many more</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #3 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #3</h3>
+                <p>Click on it.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to make up after every fight – big or small. I will never lie to you or try to hide anything from you..</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #4 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #4</h3>
+                <p> Touch to feel .</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to appreciate everything you do for me and make you smile and laugh after you’ve had a tough week</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #5 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #5</h3>
+                <p> click to know.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I Promise whenever you have any problem, I will always be there for you and would never leave you alone. No matter what, I will always care and keep you happy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #6 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #6</h3>
+                <p>always there</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to never stop trying to win you over, no matter how many months or years or lifetimes we spend together</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #7 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #7</h3>
+                <p>click to open .</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to genuinely try to understand your point of view when we disagree, before counteracting it with my own..</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+    <button class="promise-btn" onclick="showPromiseDetails()">Learn More</button>
+
+    <div id="promiseDetails" style="display: none;">
+        <p>Every promise I make is a lifelong commitment to you. These aren’t just words — they are my heart, given to you to cherish forever.</p>
+        <button onclick="startVoiceMessage()">Listen to My Promise</button>
+        <p id="voiceMessageStatus"></p>
+    </div>
+
+    <div id="countdown" style="margin-top: 30px; text-align: center;">
+        <h3>Countdown to Our Future Promise</h3>
+        <div id="countdown-timer" style="font-size: 2em;"></div>
+    </div>
+`,
+
+    radhakrishna: `
+
+    <section id="radhakrishna">
+    <h2>Radhe Krishna</h2>
+    <p>Krishna bless our love and guide us with divine grace.</p>
+     <div class="radhakrishna-section">
+    <h2 class="section-title">RadheKrishna Bless Our Love</h2>
+
+    <p class="quote">
+        "May Krishna bless our love and guide us in the path of devotion and togetherness."
+    </p>
+
+    <!-- Elegant Carousel with Minimalist Design -->
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="https://i.pinimg.com/736x/45/b6/d6/45b6d64b337f5c68976829439a1ed0b2.jpg" alt="RadhaKrishna Image 1" width="450" height="400">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://i.pinimg.com/736x/1f/c1/bf/1fc1bf598027b1f7a452af7c10d21bc0.jpg" alt="RadhaKrishna Image 2"width="450" height="400">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://i.pinimg.com/736x/cd/f3/0a/cdf30a72b441bd724479fd9eb6d98c5b.jpg" alt="RadhaKrishna Image 3"width="450" height="400">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://i.pinimg.com/736x/86/f6/7b/86f67b444244e064b8da341d314c0757.jpg" alt="RadhaKrishna Image 4"width="450" height="400">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://i.pinimg.com/736x/86/37/6a/86376a22b7d41e40e30711812abaae9d.jpg" alt="RadhaKrishna Image 5"width="450" height="400">
+            </div>
+            <div class="carousel-slide">
+                <img src="https://i.pinimg.com/736x/d7/a0/20/d7a02045a99df71777939967de9b11f6.jpg" alt="RadhaKrishna Image 6"width="450" height="400">
+            </div>
+        </div>
+        <button class="prev-btn">&#10094;</button>
+        <button class="next-btn">&#10095;</button>
+    </div>
+
+    <!-- Devotional yet Modern Text -->
+    <div class="message-container">
+        <p>
+            "In every moment, Krishna's love envelops us, guiding our hearts, lighting the way for our future together."
+        </p>
+        <p class="quote">
+            "Just as Radha and Krishna are inseparable, may our hearts beat as one forever, in love and devotion."
+        </p>
+    </div>
+
+    
+
+    <!-- Subtle Animations -->
+    <div id="floatingIcons">
+        <div class="symbol"></div>
+        <div class="symbol"></div>
+        <div class="symbol"></div>
+    </div>
+
+</div>
+        `
+    };
+
+    content.innerHTML = sections[section];
+    content.classList.add('active');
+
+    // Reinitialize the carousel script when RadheKrishna section is selected
+    if (section === "radhakrishna") {
+        initializeCarousel();
+    }
+}
+function updateProgressBar() {
+    let width = 0;
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+        } else {
+            width++;
+            document.getElementById("loveProgress").style.width = width + "%";
+        }
+    }, 50); // Adjust speed of animation
+}
+
+
+function initializeCarousel() {
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    function updateCarousel() {
+        const carousel = document.querySelector('.carousel');
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateCarousel();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateCarousel();
+        });
+    }
+}
+
+
+window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        document.querySelector('.back-to-top').style.display = 'block';
+    } else {
+        document.querySelector('.back-to-top').style.display = 'none';
+    }
+};
+
+document.querySelector('.back-to-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Opens the modal when button is clicked
+function openPastModal() {
+    document.getElementById("pastModal").style.display = "block";
+}
+
+// Closes the modal when 'x' is clicked
+function closeModal() {
+    document.getElementById("pastModal").style.display = "none";
+}
+
+// Function to animate the heart when clicked
+function animateHeart() {
+    const heart = document.querySelector('.heart');
+    heart.classList.add('heart-animated'); // Apply animation class
+
+    // Remove the animation after it completes (500ms)
+    setTimeout(() => {
+        heart.classList.remove('heart-animated'); // Reset animation
+    }, 500);
+}
+
+// Function to reveal the proposal story
+function showProposalStory() {
+    const story = document.getElementById('proposalStory');
+    story.style.display = 'block'; // Make the proposal story visible
+}
+
+// Function to show future plans when clicked
+function showFuturePlans() {
+    const plans = document.getElementById('futurePlans');
+    plans.style.display = 'block'; // Reveal future plans
+}
+
+
+// Function to flip the promise card
+function flipCard(card) {
+    const cardInner = card.querySelector('.promise-card-inner');
+    cardInner.style.transform = 'rotateY(180deg)';
+}
+
+// Function to show the promise details
+function showPromiseDetails() {
+    const details = document.getElementById('promiseDetails');
+    details.style.display = 'block'; // Reveal promise details
+    startCountdown();
+}
+
+// Function to start the countdown for a special future promise date
+function startCountdown() {
+    const futureDate = new Date("2026-01-01T00:00:00"); // Replace with your future date
+    const timer = document.getElementById('countdown-timer');
+
+    function updateCountdown() {
+        const now = new Date();
+        const remainingTime = futureDate - now;
+
+        const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+        timer.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000); // Update every second
+}
+
+// Function to play the voice message for the promise
+function startVoiceMessage() {
+    const audio = new Audio('path_to_your_audio.mp3'); // Replace with your voice message file
+    audio.play();
+
+    const status = document.getElementById('voiceMessageStatus');
+    status.innerHTML = "Playing your promise...";
+
+    audio.onended = () => {
+        status.innerHTML = "Your promise has been heard!";
+    };
+}
+
+ 
+let currentIndex = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const totalSlides = slides.length;
+
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    function updateCarousel() {
+        const carousel = document.querySelector('.carousel');
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+    const radhakrishnaSection = document.getElementById("radhakrishna");
+    const audio = document.getElementById("radhakrishna-audio");
+
+    // Function to play or pause music based on section visibility
+    const handleSectionVisibility = () => {
+        const sectionPosition = radhakrishnaSection.getBoundingClientRect();
+        const isVisible = sectionPosition.top >= 0 && sectionPosition.bottom <= window.innerHeight;
+
+        if (isVisible) {
+            audio.play(); // Play music when section is visible
+        } else {
+            audio.pause(); // Pause music when section is not visible
+        }
+    };
+
+    // Listen for scroll and resize events
+    window.addEventListener("scroll", handleSectionVisibility);
+    window.addEventListener("resize", handleSectionVisibility);
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const homeAudio = document.getElementById("home-audio");
+
+    // Automatically play the audio when the page is loaded
+    homeAudio.play().catch(error => {
+        console.log("Autoplay blocked. User interaction is required.");
+    });
+
+    // Handle user interaction in case autoplay is blocked
+    if (homeAudio.paused) {
+        document.body.addEventListener("click", () => {
+            homeAudio.play();
+        });
+    }
+});
+
+// Modal functions
+function openModal() {
+    document.getElementById("storyModal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("storyModal").style.display = "none";
+}
+
+
+
+
+</script>
+
+</body>
+</html>
