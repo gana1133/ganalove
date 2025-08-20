@@ -1,0 +1,126 @@
+<div class="promise-gallery">
+    <!-- Promise ∞ -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise ∞</h3>
+                <p>To always be there for you, no matter what.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>To my hardworking girl: <br><br> Focus on your goals my girl your man isn't going anywhere, I'll always be with you and supports you everytime, will never leave you at any situation of My life</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #1 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #1</h3>
+                <p class="typewriter">Click on it</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to always be there for you just like you have always been there for me and I promise to stand guard and save your dignity as mine.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #2 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #2</h3>
+                <p class="typewriter">Click on it</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I will always be honest and loyal to you. Remember important days which include anniversary, birthdays, propose day and many more</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #3 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #3</h3>
+                <p class="typewriter">Click on it.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to make up after every fight – big or small. I will never lie to you or try to hide anything from you.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #4 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #4</h3>
+                <p class="typewriter">Touch to feel.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to appreciate everything you do for me and make you smile and laugh after you've had a tough week</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #5 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #5</h3>
+                <p class="typewriter">click to know.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I Promise whenever you have any problem, I will always be there for you and would never leave you alone. No matter what, I will always care and keep you happy.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #6 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #6</h3>
+                <p class="typewriter">always there</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to never stop trying to win you over, no matter how many months or years or lifetimes we spend together</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Promise #7 -->
+    <div class="promise-card" onclick="flipCard(this)">
+        <div class="promise-card-inner">
+            <div class="promise-card-front">
+                <h3>Promise #7</h3>
+                <p class="typewriter">click to open.</p>
+            </div>
+            <div class="promise-card-back">
+                <p>I promise to genuinely try to understand your point of view when we disagree, before counteracting it with my own.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="promise-btn" onclick="showPromiseDetails()">Learn More</button>
+
+<div id="promiseDetails" style="display: none;">
+    <p>Every promise I make is a lifelong commitment to you. These aren't just words — they are my heart, given to you to cherish forever.</p>
+    <button onclick="startVoiceMessage()">Listen to My Promise</button>
+    <p id="voiceMessageStatus"></p>
+</div>
+
+<div id="countdown" style="margin-top: 30px; text-align: center;">
+    <h3>Countdown to Our Future Promise</h3>
+    <div id="countdown-timer" style="font-size: 2em;"></div>
+</div>
+
+<script>
+// Function to flip the promise card
+function flipCard(card) {
+    const cardInner = card.querySelector('.promise-card-inner');
+    cardInner.style.transform = cardInner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+}
+</script>
