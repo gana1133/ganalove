@@ -1,0 +1,15 @@
+{
+  "name": "love-website",
+  "version": "1.0.0",
+  "description": "A beautiful love website for Radhe",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 3000",
+    "dev": "python -m http.server 3000"
+  },
+  "keywords": ["love", "website", "romantic"],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {}
+}
